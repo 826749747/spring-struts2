@@ -1,0 +1,16 @@
+1.Spring 如何在WEB应用中应用？
+	1）.jar 包：
+		spring-web
+		spring-webmvc
+		
+	2）.spring的配置文件，没有什么不同
+	
+	3）.如何创建IOC容器
+		1.非web 应用在main方法中直接创建
+		2.应该在web 应用被服务器加载时就创建IOC 容器：
+		    在ServletContextListenner.contextInitialized(ServletContextEvent sce)方法中创建IOC容器
+		3.在WEB 应用的其他组件中如何来访问IOC容器呢？
+		  在ServletContextListenner.contextInitialized(ServletContextEvent sce)方法中创建IOC容器后
+		  可以把其放在ServletContext（即application 域）的一个属性中。	
+
+2.Spring 如何整合S
