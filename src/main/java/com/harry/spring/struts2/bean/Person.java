@@ -1,5 +1,6 @@
 package com.harry.spring.struts2.bean;
 
+
 public class Person {
 	
 	private String username;
