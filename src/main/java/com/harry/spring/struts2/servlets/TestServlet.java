@@ -25,7 +25,7 @@ public class TestServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//1. 从application域对象中得到IOC容器的应用
 		ServletContext servletContext = getServletContext();
-		ApplicationContext ctx = (ApplicationContext) servletContext.getAttribute("AppcationContext"); 
+		ApplicationContext ctx = (ApplicationContext) servletContext.getAttribute("ApplicationContext"); 
 		
 		//2.从IOC容器中得到需要的bean
 		Person person = ctx.getBean(Person.class);
@@ -33,5 +33,6 @@ public class TestServlet extends HttpServlet {
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
+	
 
 }

@@ -12,8 +12,8 @@
   </context-param>
   
   <!-- 启动IOC 容器的servletContextListener -->
-  <listener>
-  	<listener-class>com.harry.spring.struts2.listener.springContextListenner</listener-class>
+ <listener>
+  	<listener-class>com.harry.spring.struts2.listener.SpringServletContextListener</listener-class>
   </listener>
   <servlet>
   	<servlet-name>testServlet</servlet-name>
