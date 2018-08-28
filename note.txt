@@ -13,5 +13,30 @@
 		  在ServletContextListenner.contextInitialized(ServletContextEvent sce)方法中创建IOC容器后
 		  可以把其放在ServletContext（即application 域）的一个属性中。
 		4. 实际上，Spring 配置文件的名字和位置应该也是可配置的！将其配置到当前WEB应用的初始化参数中较为合适
+	4)在web环境下使用spring
+		1.额外jar包：
+		spring-web
+		spring-webmvc
+		2.spring的配置文件，没有什么不同
+		3.需要在web.xml加入如下配置：
+		  <!-- 1.配置Spring配置文件的名称和位置 -->
+			<context-param>
+				<param-name>contextConfigLocation</param-name>
+				<param-value>classpath:applicationContext.xml</param-value>
+			</context-param>
+		
+			<!-- 2.启动IOC容器的ServletContextListener -->
+			<listener>
+				<!-- Bootstraps the root web application context before servlet initialization -->
+		
+				<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+			</listener>
+2.Spring 如何整合Struts2
 
-2.Spring 如何整合S
+	1）。 整合目标？ 使IOC 容器来管理Struts2的Action！
+	2）.  如何进行整合？
+	   1.正常加入struts2
+	   2.在spring的IOC容器中配置Struts2的Action
+		
+		
+	

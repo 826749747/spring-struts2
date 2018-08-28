@@ -31,7 +31,7 @@ public class TestServlet extends HttpServlet {
 		Person person = ctx.getBean(Person.class);
 		person.hello();
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 	
 
