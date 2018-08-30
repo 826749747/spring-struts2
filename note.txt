@@ -37,6 +37,30 @@
 	2）.  如何进行整合？
 	   1.正常加入struts2
 	   2.在spring的IOC容器中配置Struts2的Action
+	      注意：在IOC容器中配置Struts2的Action时，需要配置scope属性，其值必须为prototype
+	      <bean id = "personAction" class = "com.harry.spring.struts2.actions.PersonAction"
+		scope="prototype">
+		<property name="personService" ref = "personService"></property>
+	
+	      </bean>
+	      
+	3) 配置Struts2的配置文件 ： action 节点的class 属性 需要指向IOC容器中该bean的id
+	   	<package name="default" namespace="/" extends="struts-default">
+			<action name="person-save" class="personAction">
+				<result>/success.jsp</result>
+			</action>
+
+		</package>
+	
+	4 ）加入jar包： 
+		struts2-spring-plugin-2.5.17.jar
 		
-		
+3。整合原理：通过添加  struts2-spring-plugin-2.5.17.jar	后，Struts2会先从IOC容器中获取Action的实例
+
+        if (appContext.containsBean(beanName)) {
+            o = appContext.getBean(beanName);
+        } else {
+            Class beanClazz = getClassInstance(beanName);
+            o = buildBean(beanClazz, extraContext);
+        }
 	
